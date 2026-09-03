@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+class Solution {
+    public String largestNumber(int[] nums) {
+        String[] strs = new String[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            strs[i] = String.valueOf(nums[i]);
+        }
+        
+        // Custom comparator to sort strings such that the combination forms the largest number
+        Arrays.sort(strs, (a, b) -> (b + a).compareTo(a + b));
+        
+        // Edge case: if the first number after sorting is "0", the whole number is just "0"
+        if (strs[0].equals("0")) {
+            return "0";
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        for (String s : strs) {
+            sb.append(s);
+        }
+        
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums = {3, 30, 34, 5, 9};
+        System.out.println("Largest Number: " + solution.largestNumber(nums)); // Output: 9534330
+    }
+}
