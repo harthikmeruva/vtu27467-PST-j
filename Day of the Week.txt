@@ -1,0 +1,16 @@
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Locale;
+
+class Solution {
+    public String dayOfTheWeek(int day, int month, int year) {
+        LocalDate date = LocalDate.of(year, month, day);
+        return date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int day = 31, month = 8, year = 2019;
+        System.out.println("Day of the week: " + solution.dayOfTheWeek(day, month, year)); // Output: Saturday
+    }
+}
