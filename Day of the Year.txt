@@ -1,0 +1,14 @@
+import java.time.LocalDate;
+
+class Solution {
+    public int dayOfYear(String date) {
+        LocalDate d = LocalDate.parse(date);
+        return d.getDayOfYear();
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String date = "2019-01-09";
+        System.out.println("Day of the year: " + solution.dayOfYear(date)); // Output: 9
+    }
+}
