@@ -1,0 +1,24 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Result {
+
+    public static String timeConversion(String s) {
+        // Define the formatter for the 12-hour input format (hh:mm:ssa)
+        DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("hh:mm:ssa");
+        
+        // Define the formatter for the 24-hour output format (HH:mm:ss)
+        DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+        
+        // Parse the input string into a LocalTime object
+        LocalTime time = LocalTime.parse(s, inputFormat);
+        
+        // Format and return the LocalTime object as a 24-hour string
+        return time.format(outputFormat);
+    }
+
+    public static void main(String[] args) {
+        String sampleInput = "07:05:45PM";
+        System.out.println(timeConversion(sampleInput)); // Output: 19:05:45
+    }
+}
